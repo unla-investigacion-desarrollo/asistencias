@@ -1,0 +1,13 @@
+version: '3'
+services:
+  backend:
+    image: node:latest
+    ports:
+      - "$BACKEND_PORT:$BACKEND_PORT"
+    env_file:       ./.env
+    environment:
+      - BACKEND_PORT=$BACKEND_PORT
+    working_dir: /usr/src/app/backend
+    volumes:
+      - ./backend:/usr/src/app/backend
+    command: npm start
